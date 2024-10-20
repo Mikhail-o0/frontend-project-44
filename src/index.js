@@ -26,6 +26,17 @@ const getCommonDivisor = (num, num2) => {
   return result;
 };
 
+const getRandomProgression = () => {
+  const array = [];
+  const startProgression = getRandomNum(1, 20);
+  const intervalProgression = getRandomNum(2, 10);
+  const lengthProgression = getRandomNum(5, 10);
+  for (let i = startProgression; array.length <= lengthProgression; i += intervalProgression) {
+    array.push(i);
+  }
+  return array;
+};
+
 export {
-  toGreet, getRandomNum, getRandomOperator, getCommonDivisor,
+  toGreet, getRandomNum, getRandomOperator, getCommonDivisor, getRandomProgression,
 };
