@@ -8,9 +8,15 @@ export default function isEven() {
   while (correctAnswer < 3) {
     correctAnswer += 1;
     const num = getRandomNum(1, 100);
-    console.log('Question: ', num.toString());
+    console.log('Question: ', num);
     const answer = readlineSync.question('Your answer: ');
-    const result = num % 2 === 0 ? 'yes' : 'no';
+    let result = '';
+    if (num % 2 === 0) {
+      result = 'yes';
+    } else {
+      result = 'no';
+    }
+    // const result = num % 2 === 0 ? 'yes' : 'no';
     getAnswer(correctAnswer, answer, result, name);
     if (answer !== result) {
       return;
