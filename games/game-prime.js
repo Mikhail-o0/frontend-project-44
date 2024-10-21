@@ -11,7 +11,7 @@ export default function getPrimeNumber() {
     correctAnswer += 1;
     const num = getRandomNum(2, 50);
     const result = getPrime(num);
-    console.log('Question: ', num);
+    console.log('Question:', num);
     const answer = readlineSync.question('Your answer: ');
     getAnswer(correctAnswer, answer, result, name);
     if (answer !== result) {
