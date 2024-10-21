@@ -10,13 +10,7 @@ export default function isEven() {
     const num = getRandomNum(1, 100);
     console.log('Question: ', num);
     const answer = readlineSync.question('Your answer: ');
-    let result = '';
-    if (num % 2 === 0) {
-      result = 'yes';
-    } else {
-      result = 'no';
-    }
-    // const result = num % 2 === 0 ? 'yes' : 'no';
+    const result = num % 2 === 0 ? 'yes' : 'no';
     getAnswer(correctAnswer, answer, result, name);
     if (answer !== result) {
       return;
