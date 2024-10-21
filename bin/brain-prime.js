@@ -1,3 +1,3 @@
-import getPrimeNumber from '../games/game-prime.js';
+import getPrimeNumber from '../src/games/game-prime.js';
 
 getPrimeNumber();

@@ -1,3 +1,3 @@
-import isEven from '../games/game-even.js';
+import isEven from '../src/games/game-even.js';
 
 isEven();
