@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomNum, getRandomOperator, toGreet, getAnswer,
-} from './index.js';
+} from '../src/index.js';
 
 export default function getCalc() {
   const name = toGreet();
@@ -28,7 +28,7 @@ export default function getCalc() {
         break;
       default:
     }
-    getAnswer(Number(answer), result, name);
+    getAnswer(correctAnswer, Number(answer), result, name);
     if (Number(answer) !== result) {
       return;
     }

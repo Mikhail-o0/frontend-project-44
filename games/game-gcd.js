@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomNum, toGreet, getCommonDivisor, getAnswer,
-} from './index.js';
+} from '../src/index.js';
 
 export default function getGcd() {
   const name = toGreet();
@@ -15,7 +15,7 @@ export default function getGcd() {
     console.log('Question:', numbers);
     const answer = readlineSync.question('Your answer: ');
     const result = getCommonDivisor(num, num2);
-    getAnswer(Number(answer), result, name);
+    getAnswer(correctAnswer, Number(answer), result, name);
     if (Number(answer) !== result) {
       return;
     }

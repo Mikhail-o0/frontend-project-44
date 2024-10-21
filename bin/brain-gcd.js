@@ -1,3 +1,3 @@
-import getGcd from '../src/game-gcd.js';
+import getGcd from '../games/game-gcd.js';
 
 getGcd();

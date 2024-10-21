@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import {
   getRandomNum, toGreet, getRandomProgression, getAnswer,
-} from './index.js';
+} from '../src/index.js';
 
 export default function getProgression() {
   const name = toGreet();
@@ -15,7 +15,7 @@ export default function getProgression() {
     progression.splice(randomIndex, 1, '..');
     console.log('Question:', progression.join(' '));
     const answer = readlineSync.question('Your answer: ');
-    getAnswer(Number(answer), result, name);
+    getAnswer(correctAnswer, Number(answer), result, name);
     if (Number(answer) !== result) {
       return;
     }
