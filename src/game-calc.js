@@ -1,5 +1,7 @@
 import readlineSync from 'readline-sync';
-import { getRandomNum, getRandomOperator, toGreet } from './index.js';
+import {
+  getRandomNum, getRandomOperator, toGreet, getAnswer,
+} from './index.js';
 
 export default function getCalc() {
   const name = toGreet();
@@ -25,14 +27,9 @@ export default function getCalc() {
         result = num * num2;
         break;
       default:
-    } if (correctAnswer === 3) {
-      console.log('Correct!');
-      console.log('Congratulations,', name);
-    } else if (Number(answer) === result) {
-      console.log('Correct!');
-    } else {
-      console.log(answer, 'is wrong answer ;(. Correct answer was', result, '.');
-      console.log("Let's try again,", name, '!');
+    }
+    getAnswer(Number(answer), result, name);
+    if (Number(answer) !== result) {
       return;
     }
   }

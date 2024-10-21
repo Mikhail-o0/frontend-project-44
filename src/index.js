@@ -37,6 +37,20 @@ const getRandomProgression = () => {
   return array;
 };
 
+const getAnswer = (answer, result, name) => {
+  let correct = 0;
+  if (correct === 3) {
+    console.log('Correct!');
+    console.log('Congratulations,', name);
+  } else if (answer === result) {
+    correct += 1;
+    console.log('Correct!');
+  } else {
+    console.log(answer, 'is wrong answer ;(. Correct answer was', result, '.');
+    console.log("Let's try again,", name, '!');
+  }
+};
+
 export {
-  toGreet, getRandomNum, getRandomOperator, getCommonDivisor, getRandomProgression,
+  toGreet, getRandomNum, getRandomOperator, getCommonDivisor, getRandomProgression, getAnswer,
 };
