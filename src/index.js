@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 import readlineSync from 'readline-sync';
 
 const toGreet = () => {
@@ -46,7 +45,7 @@ const getAnswer = (correctAnswer, answer, result, name) => {
     console.log('Correct!');
   } else {
     console.log(`'${answer}'`, 'is wrong answer ;(. Correct answer was', `'${result}'${'.'}`);
-    console.log("Let's try again,", `${name}${'!'}`);
+    console.log(`Let's try again, ${name}!}`);
   }
 };
 
@@ -63,5 +62,6 @@ const getPrime = (num) => {
 };
 
 export {
-  toGreet, getRandomNum, getRandomOperator, getCommonDivisor, getRandomProgression, getAnswer, getPrime,
+  toGreet, getRandomNum, getRandomOperator, getCommonDivisor,
+  getRandomProgression, getAnswer, getPrime,
 };
