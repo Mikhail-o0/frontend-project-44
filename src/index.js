@@ -46,6 +46,7 @@ const getAnswer = (correctAnswer, answer, result, name) => {
   } else {
     console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
     console.log(`Let's try again, ${name}!`);
+    return;
   }
 };
 
