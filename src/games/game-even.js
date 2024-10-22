@@ -1,5 +1,5 @@
 import readlineSync from 'readline-sync';
-import { getRandomNum, toGreet } from '../index.js';
+import { getRandomNum, toGreet, getAnswer } from '../index.js';
 
 export default function isEven() {
   const name = toGreet();
@@ -11,14 +11,8 @@ export default function isEven() {
     console.log('Question:', num);
     const answer = readlineSync.question('Your answer: ');
     const result = num % 2 === 0 ? 'yes' : 'no';
-    if (correctAnswer === 3) {
-      console.log('Correct!');
-      console.log(`Congratulations, ${name}!`);
-    } else if (answer === result) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
-      console.log(`Let's try again, ${name}!`);
+    getAnswer(correctAnswer, answer, result, name);
+    if (answer !== result) {
       return;
     }
   }

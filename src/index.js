@@ -38,7 +38,10 @@ const getRandomProgression = () => {
 };
 
 const getAnswer = (correctAnswer, answer, result, name) => {
-  if (correctAnswer === 3) {
+  if (answer !== result) {
+    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
+    console.log(`Let's try again, ${name}!`);
+  } else if (correctAnswer === 3) {
     console.log('Correct!');
     console.log(`Congratulations, ${name}!`);
   } else if (answer === result) {
