@@ -17,22 +17,24 @@
     npm version 10.8.2;
 ```
 ## Установка и запуск
-
-
-```bash
-make install
-```
-
-## Run games
-
-```bash
-make brain-even // Игра: "Проверка на чётность"
-make brain-calc // Игра: "Калькулятор"
-make brain-gcd // Игра "НОД"
-make brain-prime // Игра "Простое ли число?"
-make brain-progression // Игра "Арифметическая прогрессия"
-```
-
+Склонируйте на свой компьютер и на каждом следующем шаге действуйте по алгоритму:
+1. Для клонирования репозитория исользуйте команду `git clone https://github.com/Mikhail-o0/frontend-project-44`.
+2. В результате клонирования репозитория в вашей файловой системе появится корневая директория `cd hexlet-project-44`.
+3. Установите зависимости `make install`.
+4. Для запуска игр используйте следующие команды:
+   ```
+   // Игра: "Проверка на чётность"
+   make brain-even
+   // Игра: "Калькулятор"
+   make brain-calc
+   // Игра "НОД"
+   make brain-gcd
+   // Игра "Простое ли число?"
+   make brain-prime
+   // Игра "Арифметическая прогрессия"
+   make brain-progression
+   ```
+   
 [Игра: "Проверка на чётность"](https://asciinema.org/connect/b90c4bdd-7014-44db-99d0-b3586ecf0e8d).
 
 [Игра: "Калькулятор"](https://asciinema.org/a/qgcX2HSypPvqu05nN2IVENUgV).
