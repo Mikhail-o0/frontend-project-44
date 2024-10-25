@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 import { getRandomNum, toGreet, getAnswer } from '../index.js';
 
-export default function isEven() {
+export default function launchEven() {
   const name = toGreet();
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   let correctAnswer = 0;

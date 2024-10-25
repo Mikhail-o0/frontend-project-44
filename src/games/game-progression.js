@@ -3,7 +3,7 @@ import {
   getRandomNum, toGreet, getRandomProgression, getAnswer,
 } from '../index.js';
 
-export default function getProgression() {
+export default function launchProgression() {
   const name = toGreet();
   console.log('What number is missing in the progression?');
   let correctAnswer = 0;

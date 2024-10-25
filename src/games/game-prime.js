@@ -3,7 +3,7 @@ import {
   getRandomNum, toGreet, getAnswer, getPrime,
 } from '../index.js';
 
-export default function getPrimeNumber() {
+export default function launchPrimeNumber() {
   const name = toGreet();
   console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
   let correctAnswer = 0;

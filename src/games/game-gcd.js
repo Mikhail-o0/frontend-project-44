@@ -3,7 +3,7 @@ import {
   getRandomNum, toGreet, getCommonDivisor, getAnswer,
 } from '../index.js';
 
-export default function getGcd() {
+export default function launchGcd() {
   const name = toGreet();
   console.log('Find the greatest common divisor of given numbers.');
   let correctAnswer = 0;

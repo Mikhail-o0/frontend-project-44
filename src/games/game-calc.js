@@ -3,7 +3,7 @@ import {
   getRandomNum, getRandomOperator, toGreet, getAnswer,
 } from '../index.js';
 
-export default function getCalc() {
+export default function launchCalc() {
   const name = toGreet();
   console.log('What is the result of the expression?');
   let correctAnswer = 0;
