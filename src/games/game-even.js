@@ -1,19 +1,20 @@
-import readlineSync from 'readline-sync';
-import { getRandomNum, toGreet, getAnswer } from '../index.js';
+import { getRandomNum, gameLogic } from '../index.js';
+
+const conditionQuestion = () => {
+  const condition = 'Answer "yes" if the number is even, otherwise answer "no".';
+  return condition;
+};
+
+const task = () => {
+  const find = getRandomNum(1, 100);
+  return find;
+};
+
+const checkAnswer = (find) => {
+  const result = find % 2 === 0 ? 'yes' : 'no';
+  return result;
+};
 
 export default function launchEven() {
-  const name = toGreet();
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
-  let correctAnswer = 0;
-  while (correctAnswer < 3) {
-    correctAnswer += 1;
-    const num = getRandomNum(1, 100);
-    console.log('Question:', num);
-    const answer = readlineSync.question('Your answer: ');
-    const result = num % 2 === 0 ? 'yes' : 'no';
-    getAnswer(correctAnswer, answer, result, name);
-    if (answer !== result) {
-      return;
-    }
-  }
+  gameLogic(conditionQuestion, task, checkAnswer);
 }

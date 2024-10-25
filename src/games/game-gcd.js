@@ -1,23 +1,32 @@
-import readlineSync from 'readline-sync';
 import {
-  getRandomNum, toGreet, getCommonDivisor, getAnswer,
+  getRandomNum, gameLogic,
 } from '../index.js';
 
-export default function launchGcd() {
-  const name = toGreet();
-  console.log('Find the greatest common divisor of given numbers.');
-  let correctAnswer = 0;
-  while (correctAnswer < 3) {
-    correctAnswer += 1;
-    const num = getRandomNum(1, 20);
-    const num2 = getRandomNum(1, 20);
-    const numbers = `${num} ${num2}`;
-    console.log('Question:', numbers);
-    const answer = readlineSync.question('Your answer: ');
-    const result = getCommonDivisor(num, num2);
-    getAnswer(correctAnswer, Number(answer), result, name);
-    if (Number(answer) !== result) {
-      return;
+const conditionQuestion = () => {
+  const condition = 'Find the greatest common divisor of given numbers.';
+  return condition;
+};
+
+const task = () => {
+  const num = getRandomNum(1, 20);
+  const num2 = getRandomNum(1, 20);
+  const expression = `${num} ${num2}`;
+  return expression;
+};
+
+const checkAnswer = (expression) => {
+  const array = expression.split(' ');
+  const largestNumber = [];
+  let result = 0;
+  for (let i = 1; i <= array[0]; i += 1) {
+    if (array[0] % i === 0 && array[1] % i === 0) {
+      largestNumber.push(i);
     }
   }
+  result = largestNumber.pop();
+  return result.toString();
+};
+
+export default function launchGcd() {
+  gameLogic(conditionQuestion, task, checkAnswer);
 }

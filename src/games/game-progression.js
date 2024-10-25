@@ -1,23 +1,37 @@
-import readlineSync from 'readline-sync';
 import {
-  getRandomNum, toGreet, getRandomProgression, getAnswer,
+  getRandomNum, gameLogic,
 } from '../index.js';
 
-export default function launchProgression() {
-  const name = toGreet();
-  console.log('What number is missing in the progression?');
-  let correctAnswer = 0;
-  while (correctAnswer < 3) {
-    correctAnswer += 1;
-    const progression = getRandomProgression();
-    const randomIndex = getRandomNum(0, progression.length - 1);
-    const result = progression[randomIndex];
-    progression.splice(randomIndex, 1, '..');
-    console.log('Question:', progression.join(' '));
-    const answer = readlineSync.question('Your answer: ');
-    getAnswer(correctAnswer, Number(answer), result, name);
-    if (Number(answer) !== result) {
-      return;
-    }
+const conditionQuestion = () => {
+  const condition = 'What number is missing in the progression?';
+  return condition;
+};
+
+const task = () => {
+  const array = [];
+  const startProgression = getRandomNum(1, 20);
+  const intervalProgression = getRandomNum(2, 10);
+  const lengthProgression = getRandomNum(5, 10);
+  for (let i = startProgression; array.length <= lengthProgression; i += intervalProgression) {
+    array.push(i);
   }
+  const randomIndex = getRandomNum(0, array.length - 1);
+  array.splice(randomIndex, 1, '..');
+  return array.join(' ');
+};
+
+const checkAnswer = (array) => {
+  const numArray = array.split(' ');
+  const index = numArray.indexOf('..');
+  let result = 0;
+  if (index >= 2) {
+    result = Number(numArray[index - 1]) + (Number(numArray[1]) - Number(numArray[0]));
+  } else {
+    result = Number(numArray[index + 1]) - (Number(numArray[4]) - Number(numArray[3]));
+  }
+  return result.toString();
+};
+
+export default function launchProgression() {
+  gameLogic(conditionQuestion, task, checkAnswer);
 }

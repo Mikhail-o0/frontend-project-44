@@ -9,59 +9,27 @@ const toGreet = () => {
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-const getRandomOperator = () => {
-  const operator = ['+', '-', '*'];
-  return operator[getRandomNum(0, operator.length - 1)];
-};
-
-const getCommonDivisor = (num, num2) => {
-  const largestNumber = [];
-  let result = 0;
-  for (let i = 1; i <= num; i += 1) {
-    if (num % i === 0 && num2 % i === 0) {
-      largestNumber.push(i);
+function gameLogic(conditionQuestion, task, checkAnswer) {
+  const name = toGreet();
+  console.log(conditionQuestion());
+  const rounds = 3;
+  let correctAnswer = 0;
+  while (correctAnswer < rounds) {
+    correctAnswer += 1;
+    const find = task();
+    const check = checkAnswer(find);
+    console.log(`Question: ${find}`);
+    const answer = readlineSync.question('Your answer: ');
+    if (answer !== check) {
+      console.log(`'${answer}' is wrong answer ;(. Correct answer was '${check}'.`);
+      console.log(`Let's try again, ${name}!`);
+      return;
     }
-  }
-  result = largestNumber.pop();
-  return result;
-};
-
-const getRandomProgression = () => {
-  const array = [];
-  const startProgression = getRandomNum(1, 20);
-  const intervalProgression = getRandomNum(2, 10);
-  const lengthProgression = getRandomNum(5, 10);
-  for (let i = startProgression; array.length <= lengthProgression; i += intervalProgression) {
-    array.push(i);
-  }
-  return array;
-};
-
-const getAnswer = (correctAnswer, answer, result, name) => {
-  if (answer !== result) {
-    console.log(`'${answer}' is wrong answer ;(. Correct answer was '${result}'.`);
-    console.log(`Let's try again, ${name}!`);
-  } else if (correctAnswer === 3) {
-    console.log('Correct!');
-    console.log(`Congratulations, ${name}!`);
-  } else if (answer === result) {
     console.log('Correct!');
   }
-};
-
-const getPrime = (num) => {
-  let result = '';
-  for (let i = 2; i < num - 1; i += 1) {
-    if (num % i !== 0) {
-      result = 'yes';
-    } else {
-      return 'no';
-    }
-  }
-  return result;
-};
+  console.log(`Congratulations, ${name}!`);
+}
 
 export {
-  toGreet, getRandomNum, getRandomOperator, getCommonDivisor,
-  getRandomProgression, getAnswer, getPrime,
+  toGreet, getRandomNum, gameLogic,
 };

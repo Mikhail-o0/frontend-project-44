@@ -1,36 +1,39 @@
-import readlineSync from 'readline-sync';
 import {
-  getRandomNum, getRandomOperator, toGreet, getAnswer,
+  getRandomNum, gameLogic,
 } from '../index.js';
 
-export default function launchCalc() {
-  const name = toGreet();
-  console.log('What is the result of the expression?');
-  let correctAnswer = 0;
-  while (correctAnswer < 3) {
-    const num = getRandomNum(1, 100);
-    const num2 = getRandomNum(1, 100);
-    const operator = getRandomOperator();
-    correctAnswer += 1;
-    const expression = `${num} ${operator} ${num2}`;
-    console.log('Question:', expression);
-    const answer = readlineSync.question('Your answer: ');
-    let result;
-    switch (operator) {
-      case '+':
-        result = num + num2;
-        break;
-      case '-':
-        result = num - num2;
-        break;
-      case '*':
-        result = num * num2;
-        break;
-      default:
-    }
-    getAnswer(correctAnswer, Number(answer), result, name);
-    if (Number(answer) !== result) {
-      return;
-    }
+const conditionQuestion = () => {
+  const condition = 'What is the result of the expression?';
+  return condition;
+};
+
+const task = () => {
+  const find = getRandomNum(1, 20);
+  const find2 = getRandomNum(1, 20);
+  const operator = ['+', '-', '*'];
+  const randomOperator = operator[getRandomNum(0, operator.length - 1)];
+  const expression = `${find} ${randomOperator} ${find2}`;
+  return expression;
+};
+
+const checkAnswer = (expression) => {
+  let result = expression;
+  const array = result.split(' ');
+  switch (array[1]) {
+    case '+':
+      result = Number(array[0]) + Number(array[2]);
+      break;
+    case '-':
+      result = Number(array[0]) - Number(array[2]);
+      break;
+    case '*':
+      result = Number(array[0]) * Number(array[2]);
+      break;
+    default:
   }
+  return result.toString();
+};
+
+export default function launchCalc() {
+  gameLogic(conditionQuestion, task, checkAnswer);
 }
