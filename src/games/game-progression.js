@@ -2,10 +2,7 @@ import {
   getRandomNum, gameLogic,
 } from '../index.js';
 
-const conditionQuestion = () => {
-  const condition = 'What number is missing in the progression?';
-  return condition;
-};
+const condition = 'What number is missing in the progression?';
 
 const task = () => {
   const array = [];
@@ -33,5 +30,5 @@ const checkAnswer = (array) => {
 };
 
 export default function launchProgression() {
-  gameLogic(conditionQuestion, task, checkAnswer);
+  gameLogic(condition, task, checkAnswer);
 }

@@ -2,20 +2,17 @@ import {
   getRandomNum, gameLogic,
 } from '../index.js';
 
-const conditionQuestion = () => {
-  const condition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  return condition;
-};
+const condition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const task = () => {
-  const find = getRandomNum(2, 50);
-  return find;
+  const num = getRandomNum(2, 50);
+  return num;
 };
 
-const checkAnswer = (find) => {
+const checkAnswer = (num) => {
   let result = '';
-  for (let i = 2; i < find - 1; i += 1) {
-    if (find % i !== 0) {
+  for (let i = 2; i < num - 1; i += 1) {
+    if (num % i !== 0) {
       result = 'yes';
     } else {
       return 'no';
@@ -25,5 +22,5 @@ const checkAnswer = (find) => {
 };
 
 export default function launchPrimeNumber() {
-  gameLogic(conditionQuestion, task, checkAnswer);
+  gameLogic(condition, task, checkAnswer);
 }

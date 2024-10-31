@@ -1,13 +1,13 @@
 import readlineSync from 'readline-sync';
+import { rounds } from './utils/config.js';
 
 const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
 
-function gameLogic(conditionQuestion, task, checkAnswer) {
+function gameLogic(condition, task, checkAnswer) {
   console.log('Welcome to the Brain Games!');
   const name = readlineSync.question('May I have your name? ');
   console.log(`Hello, ${name}!`);
-  console.log(conditionQuestion());
-  const rounds = 3;
+  console.log(condition);
   let correctAnswer = 0;
   while (correctAnswer < rounds) {
     correctAnswer += 1;

@@ -2,10 +2,7 @@ import {
   getRandomNum, gameLogic,
 } from '../index.js';
 
-const conditionQuestion = () => {
-  const condition = 'Find the greatest common divisor of given numbers.';
-  return condition;
-};
+const condition = 'Find the greatest common divisor of given numbers.';
 
 const task = () => {
   const num = getRandomNum(1, 20);
@@ -28,5 +25,5 @@ const checkAnswer = (expression) => {
 };
 
 export default function launchGcd() {
-  gameLogic(conditionQuestion, task, checkAnswer);
+  gameLogic(condition, task, checkAnswer);
 }
