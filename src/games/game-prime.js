@@ -11,7 +11,10 @@ const task = () => {
 
 const checkAnswer = (num) => {
   let result = '';
-  for (let i = 0; i < num - 1; i += 1) {
+  if (num === 2) {
+    result = 'yes';
+  }
+  for (let i = 2; i < num; i += 1) {
     if (num % i !== 0) {
       result = 'yes';
     } else {
