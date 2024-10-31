@@ -53,4 +53,3 @@
 * [Игра "Арифметическая прогрессия"](https://asciinema.org/a/N1hgvh5ajLGJTwxfN8a91Hr3L)
 
 * [Игра "Простое ли число?"](https://asciinema.org/a/gn15WPt2gSxkK61CwKs7q3TMm)
-
