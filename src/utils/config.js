@@ -1,4 +1,5 @@
 const rounds = 3;
 
-// eslint-disable-next-line import/prefer-default-export
-export { rounds };
+const getRandomNum = (min, max) => Math.floor(Math.random() * (max - min + 1)) + min;
+
+export { rounds, getRandomNum };

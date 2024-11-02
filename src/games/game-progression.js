@@ -1,6 +1,5 @@
-import {
-  getRandomNum, gameLogic,
-} from '../index.js';
+import gameLogic from '../index.js';
+import { getRandomNum } from '../utils/config.js';
 
 const condition = 'What number is missing in the progression?';
 

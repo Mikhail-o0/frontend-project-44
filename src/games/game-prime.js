@@ -1,6 +1,5 @@
-import {
-  getRandomNum, gameLogic,
-} from '../index.js';
+import gameLogic from '../index.js';
+import { getRandomNum } from '../utils/config.js';
 
 const condition = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
@@ -10,18 +9,22 @@ const task = () => {
 };
 
 const checkAnswer = (num) => {
-  let result = '';
-  if (num === 2) {
-    result = 'yes';
-  }
-  for (let i = 2; i < num; i += 1) {
-    if (num % i !== 0) {
-      result = 'yes';
-    } else {
-      return 'no';
+  const isRemains = () => {
+    let result = '';
+    if (num === 2) {
+      result = true;
     }
-  }
-  return result;
+    for (let i = 2; i < num; i += 1) {
+      if (num % i !== 0) {
+        result = true;
+      } else {
+        return false;
+      }
+    }
+    return result;
+  };
+  const check = isRemains() ? 'yes' : 'no';
+  return check;
 };
 
 export default function launchPrimeNumber() {

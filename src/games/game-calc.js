@@ -1,6 +1,5 @@
-import {
-  getRandomNum, gameLogic,
-} from '../index.js';
+import gameLogic from '../index.js';
+import { getRandomNum } from '../utils/config.js';
 
 const condition = 'What is the result of the expression?';
 
@@ -27,6 +26,7 @@ const checkAnswer = (expression) => {
       result = Number(array[0]) * Number(array[2]);
       break;
     default:
+      throw new Error(`Unknown state: '${array[1]}'!`);
   }
   return result.toString();
 };

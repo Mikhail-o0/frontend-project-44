@@ -1,4 +1,5 @@
-import { getRandomNum, gameLogic } from '../index.js';
+import gameLogic from '../index.js';
+import { getRandomNum } from '../utils/config.js';
 
 const condition = 'Answer "yes" if the number is even, otherwise answer "no".';
 
@@ -8,8 +9,9 @@ const task = () => {
 };
 
 const checkAnswer = (num) => {
-  const result = num % 2 === 0 ? 'yes' : 'no';
-  return result;
+  const isEven = () => num % 2 === 0;
+  const check = isEven() ? 'yes' : 'no';
+  return check;
 };
 
 export default function launchEven() {
