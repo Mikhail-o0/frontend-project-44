@@ -9,9 +9,9 @@ export default function gameLogic(condition, task, checkAnswer) {
   let correctAnswer = 0;
   while (correctAnswer < rounds) {
     correctAnswer += 1;
-    const find = task();
-    const check = checkAnswer(find);
-    console.log(`Question: ${find}`);
+    const num = task();
+    const check = checkAnswer(num);
+    console.log(`Question: ${num}`);
     const answer = readlineSync.question('Your answer: ');
     if (answer !== check) {
       console.log(`'${answer}' is wrong answer ;(. Correct answer was '${check}'.`);
